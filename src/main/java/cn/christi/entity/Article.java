@@ -1,6 +1,7 @@
 package cn.christi.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.Version;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -46,6 +47,12 @@ public class Article extends Model implements Serializable {
      * 文章访问量
      */
     private Integer traffic;
+
+    /**
+     * 乐观锁
+     */
+    @Version
+    private Integer version;
 
 
 }

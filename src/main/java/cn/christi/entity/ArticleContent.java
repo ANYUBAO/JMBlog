@@ -1,6 +1,7 @@
 package cn.christi.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.Version;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -37,5 +38,10 @@ public class ArticleContent extends Model implements Serializable {
      */
     private Long articleId;
 
+    /**
+     * 乐观锁
+     */
+    @Version
+    private Integer version;
 
 }

@@ -7,6 +7,7 @@ CREATE TABLE `blog_article`
     `modified_time` datetime     NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
     `status`        tinyint(1)   NOT NULL DEFAULT '0' COMMENT '是否有效，默认为0为有效，1为无效',
     `title`         varchar(50)  NOT NULL COMMENT '文章标题',
+    `version`       tinyint      NOT NULL DEFAULT '0' COMMENT '乐观锁',
     `summary`       varchar(100) NOT NULL COMMENT '文章简介，默认100个汉字以内',
     `top`           tinyint(1)   NOT NULL DEFAULT '0' COMMENT '文章是否置顶，0为否，1为是',
     `traffic`       int          NOT NULL DEFAULT '0' COMMENT '文章访问量',
@@ -25,6 +26,7 @@ CREATE TABLE `blog_article_content`
     `modified_time` datetime   NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
     `status`        tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否有效，默认为0为有效，1为无效',
     `content`       text       NOT NULL COMMENT '文章内容',
+    `version`       tinyint    NOT NULL DEFAULT '0' COMMENT '乐观锁',
     `article_id`    bigint     NOT NULL COMMENT '对应文章ID',
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB

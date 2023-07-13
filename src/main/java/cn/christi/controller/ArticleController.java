@@ -1,7 +1,13 @@
 package cn.christi.controller;
 
+import cn.christi.entity.Article;
+import cn.christi.mapper.ArticleMapper;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * <p>
@@ -14,5 +20,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/article")
 public class ArticleController {
+
+    @Resource
+    private ArticleMapper articleMapper;
+
+    @GetMapping("/info")
+    public List<Article> getList(){
+        return articleMapper.selectList(null);
+    }
 
 }
