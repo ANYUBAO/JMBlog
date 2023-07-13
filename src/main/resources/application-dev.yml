@@ -1,0 +1,22 @@
+server:
+  port: 12333
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+  global-config:
+    db-config:
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/blog?serverTimezone=GMT%2B8&userUnicode=true&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: Root123
+
+#  mybatis-plus.global-config.db-config.logic-delete-value=1
+#  mybatis-plus.global-config.db-config.logic-not-delete-value=0
