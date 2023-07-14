@@ -1,8 +1,8 @@
 package cn.christi.service.impl;
 
-import cn.christi.entity.Message;
-import cn.christi.mapper.MessageMapper;
-import cn.christi.service.IMessageService;
+import cn.christi.entity.Comment;
+import cn.christi.mapper.CommentMapper;
+import cn.christi.service.ICommentService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +15,6 @@ import org.springframework.stereotype.Service;
  * @since 2023-07-13
  */
 @Service
-public class MessageServiceImpl extends ServiceImpl<MessageMapper, Message> implements IMessageService {
+public class CommentServiceImpl extends ServiceImpl<CommentMapper, Comment> implements ICommentService {
 
 }

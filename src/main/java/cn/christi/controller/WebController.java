@@ -2,6 +2,7 @@ package cn.christi.controller;
 
 import cn.christi.entity.Article;
 import cn.christi.mapper.ArticleMapper;
+import cn.christi.util.GlobalConstant;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,8 +19,8 @@ import java.util.List;
  * @since 2023-07-13
  */
 @RestController
-@RequestMapping("/article")
-public class ArticleController {
+@RequestMapping(GlobalConstant.API_PATH)
+public class WebController {
 
     @Resource
     private ArticleMapper articleMapper;

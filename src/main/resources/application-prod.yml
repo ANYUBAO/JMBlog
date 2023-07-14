@@ -22,8 +22,8 @@ spring:
     password: Root123456
   devtools:
     restart:
-      enabled: true # 开启热部署
+      enabled: false # 开启热部署
       additional-paths: src/main #热部署包
 
 swagger:
-  enable: true
+  enable: false

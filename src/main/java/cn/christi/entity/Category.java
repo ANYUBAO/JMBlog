@@ -22,8 +22,8 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-@TableName("blog_sort")
-public class Sort extends Model implements Serializable {
+@TableName("blog_category")
+public class Category extends Model implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

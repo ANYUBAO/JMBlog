@@ -22,8 +22,8 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-@TableName("blog_message")
-public class Message extends Model implements Serializable {
+@TableName("blog_comment")
+public class Comment extends Model implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

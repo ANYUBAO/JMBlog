@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <property name="LOG_PATH" value="log/"/>
+    <property name="LOG_FILE" value="JMBlog"/>
+    <property name="log-pattern"
+              value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%X{scsSource}] [%X{scId}] [%t] [%-5level] %c{1.}@%M:%L - %m%n"/>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+    <!-- 按照每天生成日志文件 -->
+    <appender name="FILE-MAIN" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}${LOG_FILE}.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!--日志文件输出的文件名-->
+            <fileNamePattern>${LOG_PATH}%d{yyyy-ww, aux}/${LOG_FILE}.%d{yyyy-MM-dd}.%i.log.zip</fileNamePattern>
+            <maxFileSize>20MB</maxFileSize>
+            <!--日志文件保留天数-->
+            <maxHistory>30</maxHistory>
+            <totalSizeCap>5GB</totalSizeCap>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${log-pattern}</pattern>
+            <charset>utf8</charset>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="FILE-MAIN"/>
+        <appender-ref ref="CONSOLE"/>
+    </root>
+</configuration>
