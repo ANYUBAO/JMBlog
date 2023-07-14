@@ -4,6 +4,7 @@ server:
 mybatis-plus:
   configuration:
     map-underscore-to-camel-case: true # 开启驼峰
+    log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl
   global-config:
     db-config:
       logic-delete-value: 1
@@ -65,4 +66,4 @@ swagger:
 
 logging:
   level:
-    sql: debug
+    org.apache: off
