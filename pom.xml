@@ -21,6 +21,7 @@
         <druid.version>1.2.8</druid.version>
         <springfox.version>3.0.0</springfox.version>
         <bootstrap.version>1.9.6</bootstrap.version>
+        <slf4j-api.version>2.0.7</slf4j-api.version>
     </properties>
 
     <parent>
@@ -44,11 +45,6 @@
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-extension</artifactId>
             <version>${mybatis-plus.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>p6spy</groupId>
-            <artifactId>p6spy</artifactId>
-            <version>${p6spy.version}</version>
         </dependency>
         <!--        mysql-->
         <dependency>
@@ -95,7 +91,12 @@
             <artifactId>swagger-bootstrap-ui</artifactId>
             <version>${bootstrap.version}</version>
         </dependency>
-
+        <!--        druid-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>${druid.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
