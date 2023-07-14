@@ -24,7 +24,7 @@ public class ArticleController {
     @Resource
     private ArticleMapper articleMapper;
 
-    @GetMapping("/info")
+    @GetMapping
     public List<Article> getList(){
         return articleMapper.selectList(null);
     }

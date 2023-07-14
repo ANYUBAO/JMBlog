@@ -16,7 +16,11 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <mybatis-plus.version>3.5.2</mybatis-plus.version>
         <mysql.version>8.0.33</mysql.version>
-        <p6spy.version>1.9.0</p6spy.version>
+        <p6spy.version>3.9.1</p6spy.version>
+        <fastjson.version>2.0.35</fastjson.version>
+        <druid.version>1.2.8</druid.version>
+        <springfox.version>3.0.0</springfox.version>
+        <bootstrap.version>1.9.6</bootstrap.version>
     </properties>
 
     <parent>
@@ -42,8 +46,8 @@
             <version>${mybatis-plus.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.github.gavlyukovskiy</groupId>
-            <artifactId>p6spy-spring-boot-starter</artifactId>
+            <groupId>p6spy</groupId>
+            <artifactId>p6spy</artifactId>
             <version>${p6spy.version}</version>
         </dependency>
         <!--        mysql-->
@@ -61,7 +65,7 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.2.83</version>
+            <version>${fastjson.version}</version>
         </dependency>
         <!--        test-->
         <dependency>
@@ -73,6 +77,25 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
         </dependency>
+        <!--        devtools-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <!--        swagger2-->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${springfox.version}</version>
+        </dependency>
+        <!--        swagger-bootstrap-ui-->
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>swagger-bootstrap-ui</artifactId>
+            <version>${bootstrap.version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>
