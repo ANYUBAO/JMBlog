@@ -1,20 +1,12 @@
 package cn.christi.service.impl;
 
-import cn.christi.entity.Category;
-import cn.christi.mapper.CategoryMapper;
-import cn.christi.service.ICategoryService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import org.springframework.stereotype.Service;
+import cn.christi.service.CategoryService;
 
 /**
- * <p>
- * 分类表 服务实现类
- * </p>
- *
- * @author yubao.an
- * @since 2023-07-13
- */
-@Service
-public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> implements ICategoryService {
+ * @Author: yubao.an
+ * @Date: 2023/7/17
+ * @Description: 分类
+ **/
 
+public class CategoryServiceImpl implements CategoryService {
 }
