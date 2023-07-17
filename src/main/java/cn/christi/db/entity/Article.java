@@ -8,6 +8,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 /**
@@ -24,6 +25,7 @@ import java.io.Serializable;
 @TableName("blog_article")
 public class Article extends Model implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     /**

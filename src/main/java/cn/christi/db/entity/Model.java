@@ -29,7 +29,7 @@ public class Model {
     /**
      * 创建时间
      */
-    private LocalDateTime createBy;
+    private LocalDateTime createTime;
 
     /**
      * 更新时间

@@ -1,6 +1,7 @@
 package cn.christi.service.impl;
 
 import cn.christi.service.CategoryService;
+import org.springframework.stereotype.Service;
 
 /**
  * @Author: yubao.an
@@ -8,5 +9,6 @@ import cn.christi.service.CategoryService;
  * @Description: 分类
  **/
 
+@Service
 public class CategoryServiceImpl implements CategoryService {
 }

@@ -3,7 +3,7 @@
 CREATE TABLE `blog_article`
 (
     `id`            bigint       NOT NULL COMMENT '主键',
-    `create_by`     datetime     NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    `create_time`   datetime     NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
     `modified_time` datetime     NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
     `status`        tinyint(1)   NOT NULL DEFAULT '0' COMMENT '是否有效，默认为0为有效，1为无效',
     `title`         varchar(50)  NOT NULL COMMENT '文章标题',
@@ -22,7 +22,7 @@ CREATE TABLE `blog_article`
 CREATE TABLE `blog_article_content`
 (
     `id`            bigint     NOT NULL COMMENT '主键',
-    `create_by`     datetime   NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    `create_time`   datetime   NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
     `modified_time` datetime   NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
     `status`        tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否有效，默认为0为有效，1为无效',
     `content`       text       NOT NULL COMMENT '文章内容',
@@ -39,7 +39,7 @@ CREATE TABLE `blog_article_content`
 CREATE TABLE `blog_article_message`
 (
     `id`            bigint     NOT NULL COMMENT '主键',
-    `create_by`     datetime   NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    `create_time`   datetime   NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
     `modified_time` datetime   NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
     `status`        tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否有效，默认为0为有效，1为无效',
     `article_id`    bigint     NOT NULL COMMENT '文章ID',
@@ -55,11 +55,11 @@ CREATE TABLE `blog_article_message`
 CREATE TABLE `blog_article_picture`
 (
     `id`            bigint       NOT NULL COMMENT '主键',
-    `create_by`     datetime     NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    `create_time`   datetime     NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
     `modified_time` datetime     NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
     `status`        tinyint(1)   NOT NULL DEFAULT '0' COMMENT '是否有效，默认为0为有效，1为无效',
     `article_id`    bigint       NOT NULL COMMENT '文章id',
-    `picture_url`   varchar(200) NOT NULL COMMENT '图片url',
+    `picture_url`   varchar(255) NOT NULL COMMENT '图片url',
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
@@ -71,7 +71,7 @@ CREATE TABLE `blog_article_picture`
 CREATE TABLE `blog_article_sort`
 (
     `id`            bigint     NOT NULL COMMENT '主键',
-    `create_by`     datetime   NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    `create_time`   datetime   NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
     `modified_time` datetime   NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
     `status`        tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否有效，默认为0为有效，1为无效',
     `sort_id`       bigint     NOT NULL COMMENT '分类id',
@@ -87,7 +87,7 @@ CREATE TABLE `blog_article_sort`
 CREATE TABLE `blog_log`
 (
     `id`            bigint       NOT NULL COMMENT '主键',
-    `create_by`     datetime     NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    `create_time`   datetime     NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
     `modified_time` datetime     NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
     `status`        tinyint(1)   NOT NULL DEFAULT '0' COMMENT '是否有效，默认为0为有效，1为无效',
     `ip`            varchar(20)  NOT NULL COMMENT '操作地址的IP',
@@ -105,10 +105,11 @@ CREATE TABLE `blog_log`
 CREATE TABLE `blog_message`
 (
     `id`            bigint       NOT NULL COMMENT '主键',
-    `create_by`     datetime     NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    `create_time`   datetime     NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
     `modified_time` datetime     NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
     `status`        tinyint(1)   NOT NULL DEFAULT '0' COMMENT '是否有效，默认为0为有效，1为无效',
     `content`       varchar(200) NOT NULL COMMENT '留言/评论内容',
+    `type`          varchar(20)  NOT NULL COMMENT '类型：留言MESSAGE，评论REMARK',
     `email`         varchar(100) NOT NULL COMMENT '邮箱，用于回复消息',
     `name`          varchar(20)  NOT NULL COMMENT '用户自己定义的名称',
     `ip`            varchar(20)  NOT NULL COMMENT '留言/评论IP',
@@ -118,12 +119,12 @@ CREATE TABLE `blog_message`
   COLLATE = utf8mb4_0900_ai_ci COMMENT ='评论/留言表';
 
 
--- blog.blog_sort
+-- blog.blog_category
 
-CREATE TABLE `blog_sort`
+CREATE TABLE `blog_category`
 (
     `id`            bigint      NOT NULL COMMENT '主键',
-    `create_by`     datetime    NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    `create_time`   datetime    NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
     `modified_time` datetime    NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
     `status`        tinyint(1)  NOT NULL DEFAULT '0' COMMENT '是否有效，默认为0为有效，1为无效',
     `name`          varchar(20) NOT NULL COMMENT '分类名称',
@@ -139,7 +140,7 @@ CREATE TABLE `blog_sort`
 CREATE TABLE `blog_view`
 (
     `id`            bigint      NOT NULL COMMENT '主键',
-    `create_by`     datetime    NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    `create_time`   datetime    NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
     `modified_time` datetime    NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
     `status`        tinyint(1)  NOT NULL DEFAULT '0' COMMENT '是否有效，默认为0为有效，1为无效',
     `ip`            varchar(20) NOT NULL COMMENT '访问IP',

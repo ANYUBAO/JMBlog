@@ -3,13 +3,12 @@ package cn.christi.interceptor;
 import cn.christi.exception.BizException;
 import cn.christi.exception.errorEnum.ErrorEnum;
 import cn.christi.model.vo.GeneralResult;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.BadSqlGrammarException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * @Author: yubao.an

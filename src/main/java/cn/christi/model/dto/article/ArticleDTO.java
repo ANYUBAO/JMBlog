@@ -1,13 +1,13 @@
 package cn.christi.model.dto.article;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
-import javax.validation.constraints.Size;
-import java.util.List;
+import java.time.LocalDateTime;
 
 /**
  * @Author: yubao.an
@@ -17,7 +17,8 @@ import java.util.List;
 
 
 @Data
-@ApiModel("文章信息")
+@SuperBuilder
+@Schema(description = "文章信息")
 @NoArgsConstructor
 @AllArgsConstructor
 public class ArticleDTO {
@@ -27,32 +28,33 @@ public class ArticleDTO {
     /**
      * 文章标题
      */
-    @ApiModelProperty("文章标题")
+    @Schema(description = "文章标题")
     private String title;
+
+    /**
+     * 文章标题
+     */
+    @Schema(description = "文章标题")
+    private LocalDateTime createTime;
 
     /**
      * 文章简介，默认100个汉字以内
      */
     @Size(max = 100, message = "文章简介，最多100个字")
-    @ApiModelProperty("文章简介")
+    @Schema(description = "文章简介")
     private String summary;
 
     /**
      * 文章是否置顶，0为否，1为是
      */
-    @ApiModelProperty("文章是否置顶，0为否，1为是")
+    @Schema(description = "文章是否置顶，0为否，1为是")
     private Boolean top;
 
     /**
      * 文章访问量
      */
-    @ApiModelProperty("文章访问量")
+    @Schema(description = "文章访问量")
     private Integer traffic;
 
-    /**
-     * 文章内容
-     */
-    @ApiModelProperty("文章内容")
-    private List<String> contents;
 
 }

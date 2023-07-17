@@ -3,7 +3,7 @@
     <property name="LOG_PATH" value="log/"/>
     <property name="LOG_FILE" value="JMBlog"/>
     <property name="log-pattern"
-              value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%X{scsSource}] [%X{scId}] [%t] [%-5level] %c{1.}@%M:%L - %m%n"/>
+              value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%X{scsSource}] [%X{scId}] [%t] [%-5level] %c @%M:%L - %m%n"/>
     <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
     <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
     <!-- 按照每天生成日志文件 -->

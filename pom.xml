@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--suppress VulnerableLibrariesLocal -->
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
@@ -10,24 +10,22 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <java.version>11</java.version>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
+        <java.version>17</java.version>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <mybatis-plus.version>3.5.2</mybatis-plus.version>
+        <mybatis-plus.version>3.5.3.1</mybatis-plus.version>
         <mysql.version>8.0.33</mysql.version>
-        <p6spy.version>3.9.1</p6spy.version>
         <fastjson.version>2.0.35</fastjson.version>
         <druid.version>1.2.8</druid.version>
-        <springfox.version>3.0.0</springfox.version>
-        <bootstrap.version>1.9.6</bootstrap.version>
-        <slf4j-api.version>2.0.7</slf4j-api.version>
+        <hutool.version>5.8.20</hutool.version>
+        <knife4j.version>4.1.0</knife4j.version>
     </properties>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.13</version>
+        <version>3.0.8</version>
     </parent>
 
     <dependencies>
@@ -80,17 +78,11 @@
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional>
         </dependency>
-        <!--        swagger2-->
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
-            <version>${springfox.version}</version>
-        </dependency>
-        <!--        swagger-bootstrap-ui-->
+        <!--        knife4j-->
         <dependency>
             <groupId>com.github.xiaoymin</groupId>
-            <artifactId>swagger-bootstrap-ui</artifactId>
-            <version>${bootstrap.version}</version>
+            <artifactId>knife4j-openapi3-jakarta-spring-boot-starter</artifactId>
+            <version>${knife4j.version}</version>
         </dependency>
         <!--        druid-->
         <dependency>
@@ -98,10 +90,11 @@
             <artifactId>druid-spring-boot-starter</artifactId>
             <version>${druid.version}</version>
         </dependency>
-
+        <!--        hutool-->
         <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${hutool.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

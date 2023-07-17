@@ -7,6 +7,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 /**
@@ -23,6 +24,7 @@ import java.io.Serializable;
 @TableName("blog_message")
 public class Message extends Model implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     /**
@@ -34,6 +36,11 @@ public class Message extends Model implements Serializable {
      * 邮箱，用于回复消息
      */
     private String email;
+
+    /**
+     * 类型：留言MESSAGE，评论REMARK
+     */
+    private String type;
 
     /**
      * 用户自己定义的名称
