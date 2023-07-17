@@ -1,6 +1,6 @@
 package cn.christi.service;
 
-import cn.christi.entity.Log;
+import cn.christi.entity.SysLog;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author yubao.an
  * @since 2023-07-13
  */
-public interface ILogService extends IService<Log> {
+public interface ISysLogService extends IService<SysLog> {
 
 }

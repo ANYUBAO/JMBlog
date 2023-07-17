@@ -8,7 +8,9 @@ package cn.christi.util;
 
 public class GlobalConstant {
 
-    public static final String API_PATH = "/api";
+    public static final String API_PATH = "/api/jm";
+
+    public static final String API_OPEN_PATH = "/api/open";
 
     public static final String TIMEZONE = "GMT+8";
 

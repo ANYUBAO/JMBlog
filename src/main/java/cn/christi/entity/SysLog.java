@@ -23,7 +23,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @TableName("blog_log")
-public class Log extends Model implements Serializable {
+public class SysLog extends Model implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

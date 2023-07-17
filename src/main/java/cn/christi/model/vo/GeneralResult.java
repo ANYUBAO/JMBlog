@@ -21,8 +21,6 @@ public class GeneralResult<T> {
 
     private T data;
 
-    private String traceId;
-
     private GeneralResult(boolean success, T data, String message, String errorCode) {
         this.success = success;
         this.data = data;
@@ -55,10 +53,4 @@ public class GeneralResult<T> {
         return new GeneralResult<>(success, data, message, errorCode);
     }
 
-    public static <T> GeneralResult<T> genErrorResult(String message, String errorCode,
-                                                      String traceId) {
-        GeneralResult<T> result = genResult(false, null, message, errorCode);
-        result.setTraceId(traceId);
-        return result;
-    }
 }

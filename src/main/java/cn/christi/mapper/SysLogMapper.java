@@ -1,6 +1,6 @@
 package cn.christi.mapper;
 
-import cn.christi.entity.Log;
+import cn.christi.entity.SysLog;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author yubao.an
  * @since 2023-07-13
  */
-public interface LogMapper extends BaseMapper<Log> {
+public interface SysLogMapper extends BaseMapper<SysLog> {
 
 }
