@@ -41,3 +41,4 @@ build/
 log/
 **/log/**
 **/log
+spy.log

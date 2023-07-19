@@ -1,5 +1,6 @@
 package cn.christi.db.entity;
 
+import cn.hutool.core.util.IdUtil;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.AllArgsConstructor;
@@ -23,8 +24,8 @@ public class Model {
     /**
      * 主键
      */
-    @TableId(type = IdType.ASSIGN_ID)
-    private Long id;
+    @TableId(type = IdType.INPUT)
+    private Long id = IdUtil.getSnowflakeNextId();
 
     /**
      * 创建时间

@@ -3,9 +3,15 @@ package cn.christi.controller;
 import cn.christi.db.entity.Article;
 import cn.christi.model.dto.article.ArticleContentDTO;
 import cn.christi.model.vo.GeneralResult;
+import cn.christi.model.vo.article.ArticleContentVO;
+import cn.christi.service.ArticleService;
 import cn.christi.util.GlobalConstant;
+import cn.hutool.log.Log;
+import cn.hutool.log.LogFactory;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.annotation.Resource;
+import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -29,7 +35,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class ArticleController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ArticleController.class);
+    private static final Log log = LogFactory.get();
 
+    @Resource
+    private ArticleService articleService;
 
     @GetMapping
     @Operation(summary = "分页")
@@ -39,26 +48,26 @@ public class ArticleController {
 
     @GetMapping("/info")
     @Operation(summary = "详情")
-    public GeneralResult<Article> info(@RequestParam("id") Integer id) {
-        return GeneralResult.genSuccessResult();
+    public GeneralResult<ArticleContentVO> info(@RequestParam("id") Long id) {
+        return GeneralResult.genSuccessResult(articleService.info(id));
     }
 
     @PostMapping
     @Operation(summary = "保存")
-    public GeneralResult<Void> save(@RequestBody ArticleContentDTO dto) {
-        return GeneralResult.genSuccessResult();
+    public GeneralResult<Long> save(@Valid @RequestBody ArticleContentDTO dto) {
+        return GeneralResult.genSuccessResult(articleService.save(dto));
     }
 
     @PutMapping
     @Operation(summary = "更新")
-    public GeneralResult<Void> update(@RequestBody ArticleContentDTO dto) {
-        return GeneralResult.genSuccessResult();
+    public GeneralResult<Long> update(@RequestParam("id") Long id, @Valid @RequestBody ArticleContentDTO dto) {
+        return GeneralResult.genSuccessResult(articleService.update(id, dto));
     }
 
     @DeleteMapping
     @Operation(summary = "删除")
-    public GeneralResult<Void> delete(@RequestParam("id") Integer id) {
-        return GeneralResult.genSuccessResult();
+    public GeneralResult<Boolean> delete(@RequestParam("id") Long id) {
+        return GeneralResult.genSuccessResult(articleService.delete(id));
     }
 
 

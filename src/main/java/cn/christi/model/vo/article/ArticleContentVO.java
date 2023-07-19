@@ -1,10 +1,8 @@
-package cn.christi.model.dto.article;/**
+package cn.christi.model.vo.article;/**
  * @author yubao.an
  */
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -13,19 +11,19 @@ import lombok.experimental.SuperBuilder;
 
 import java.util.List;
 
-
 /**
  * @Author: yubao.an
- * @Date: 2023/7/17
- * @Description: 文章详情DTO
+ * @Date: 2023/7/19
+ * @Description: 文章详情VO
  **/
+
 @Data
 @Schema(description = "文章详情DTO")
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class ArticleContentDTO extends ArticleDTO {
+public class ArticleContentVO extends ArticleVO{
 
     private static final long serialVersionUID = 1L;
 
@@ -33,14 +31,13 @@ public class ArticleContentDTO extends ArticleDTO {
      * 文章内容
      */
     @Schema(description = "文章内容")
-    @NotEmpty(message = "文章内容不能为空")
     private List<String> contents;
 
     /**
      * 图片url
      */
     @Schema(description = "图片url")
-    @NotBlank(message = "图片url不能为空")
     private String pictureUrl;
+
 
 }

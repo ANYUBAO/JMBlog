@@ -17,9 +17,10 @@
         <mybatis-plus.version>3.5.3.1</mybatis-plus.version>
         <mysql.version>8.0.33</mysql.version>
         <fastjson.version>2.0.35</fastjson.version>
-        <druid.version>1.2.8</druid.version>
+        <p6spy.version>3.9.1</p6spy.version>
         <hutool.version>5.8.20</hutool.version>
         <knife4j.version>4.1.0</knife4j.version>
+        <javax-mail.version>1.6.2</javax-mail.version>
     </properties>
 
     <parent>
@@ -84,17 +85,22 @@
             <artifactId>knife4j-openapi3-jakarta-spring-boot-starter</artifactId>
             <version>${knife4j.version}</version>
         </dependency>
-        <!--        druid-->
+        <!--        p6spy-->
         <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid-spring-boot-starter</artifactId>
-            <version>${druid.version}</version>
+            <groupId>p6spy</groupId>
+            <artifactId>p6spy</artifactId>
+            <version>${p6spy.version}</version>
         </dependency>
         <!--        hutool-->
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
             <version>${hutool.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>javax.mail</artifactId>
+            <version>${javax-mail.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
