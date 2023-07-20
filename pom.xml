@@ -17,7 +17,7 @@
         <mybatis-plus.version>3.5.3.1</mybatis-plus.version>
         <mysql.version>8.0.33</mysql.version>
         <fastjson.version>2.0.35</fastjson.version>
-        <p6spy.version>3.9.1</p6spy.version>
+        <p6spy.version>1.9.0</p6spy.version>
         <hutool.version>5.8.20</hutool.version>
         <knife4j.version>4.1.0</knife4j.version>
         <javax-mail.version>1.6.2</javax-mail.version>
@@ -73,12 +73,6 @@
             <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
-        <!--        devtools-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <optional>true</optional>
-        </dependency>
         <!--        knife4j-->
         <dependency>
             <groupId>com.github.xiaoymin</groupId>
@@ -87,8 +81,8 @@
         </dependency>
         <!--        p6spy-->
         <dependency>
-            <groupId>p6spy</groupId>
-            <artifactId>p6spy</artifactId>
+            <groupId>com.github.gavlyukovskiy</groupId>
+            <artifactId>p6spy-spring-boot-starter</artifactId>
             <version>${p6spy.version}</version>
         </dependency>
         <!--        hutool-->

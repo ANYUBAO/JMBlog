@@ -9,13 +9,13 @@
 <configuration scan="true" scanPeriod="60 seconds" debug="false">
 
     <!-- logback项目名称 -->
-    <property name="appName" value="demoServer"></property>
+    <property name="appName" value="JMBlog"></property>
 
     <!-- 日志级别 DEBUGER INFO WARN ERROR -->
     <property name="logLevel" value="INFO"></property>
 
     <!-- 日志路径-->
-    <property name="logPath" value="/data/project/logs"></property>
+    <property name="logPath" value="logs"></property>
 
     <!-- 最大保存时间 60天-->
     <property name="maxHistory" value="60"/>
@@ -26,9 +26,6 @@
     <!-- lOGGER  PATTERN 根据个人喜好选择匹配  -->
     <property name="logPattern"
               value="[ %-5level] [%date{yyyy-MM-dd HH:mm:ss.SSS}] %logger{36} [%line] [%thread]- %msg%n"></property>
-    <!-- %d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] %logger - %msg%n -->
-    <!-- %d{yyyy-MM-dd HH:mm:ss} %-4relative [%thread] %-5level %logger{35} - %msg %n -->
-    <!-- [ %-5level] [%date{yyyy-MM-dd HH:mm:ss.SSS}] %logger{96} [%line] [%thread]- %msg%n  -->
 
     <!-- 动态日志级别 -->
     <jmxConfigurator/>
@@ -50,9 +47,9 @@
             可以将此文件与file指定文件路径设置为不同路径，从而将当前日志文件或归档日志文件置不同的目录。
             而2022-11-06的日志文件在由fileNamePattern指定。%d{yyyy-MM-dd}指定日期格式，%i指定索引 -->
             <fileNamePattern>${logPath}/debug/${appName}_debug-%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
-            <maxFileSize>128MB</maxFileSize>
+            <maxFileSize>8MB</maxFileSize>
             <maxHistory>${maxHistory}</maxHistory>
-            <totalSizeCap>10GB</totalSizeCap>
+            <totalSizeCap>2GB</totalSizeCap>
         </rollingPolicy>
         <encoder>
             <pattern>${logPattern}</pattern>
@@ -74,9 +71,9 @@
             可以将此文件与file指定文件路径设置为不同路径，从而将当前日志文件或归档日志文件置不同的目录。
             而2022-11-06的日志文件在由fileNamePattern指定。%d{yyyy-MM-dd}指定日期格式，%i指定索引 -->
             <fileNamePattern>${logPath}/info/${appName}_info-%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
-            <maxFileSize>128MB</maxFileSize>
+            <maxFileSize>8MB</maxFileSize>
             <maxHistory>${maxHistory}</maxHistory>
-            <totalSizeCap>10GB</totalSizeCap>
+            <totalSizeCap>2GB</totalSizeCap>
         </rollingPolicy>
         <encoder>
             <pattern>${logPattern}</pattern>
@@ -98,9 +95,9 @@
             可以将此文件与file指定文件路径设置为不同路径，从而将当前日志文件或归档日志文件置不同的目录。
             而2022-11-06的日志文件在由fileNamePattern指定。%d{yyyy-MM-dd}指定日期格式，%i指定索引 -->
             <fileNamePattern>${logPath}/warn/${appName}_warn-%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
-            <maxFileSize>128MB</maxFileSize>
+            <maxFileSize>8MB</maxFileSize>
             <maxHistory>${maxHistory}</maxHistory>
-            <totalSizeCap>10GB</totalSizeCap>
+            <totalSizeCap>2GB</totalSizeCap>
         </rollingPolicy>
         <encoder>
             <pattern>${logPattern}</pattern>
@@ -122,9 +119,9 @@
             可以将此文件与file指定文件路径设置为不同路径，从而将当前日志文件或归档日志文件置不同的目录。
             而2022-11-06的日志文件在由fileNamePattern指定。%d{yyyy-MM-dd}指定日期格式，%i指定索引 -->
             <fileNamePattern>${logPath}/error/${appName}_error-%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
-            <maxFileSize>128MB</maxFileSize>
+            <maxFileSize>8MB</maxFileSize>
             <maxHistory>${maxHistory}</maxHistory>
-            <totalSizeCap>10GB</totalSizeCap>
+            <totalSizeCap>2GB</totalSizeCap>
         </rollingPolicy>
         <encoder>
             <pattern>${logPattern}</pattern>
@@ -181,7 +178,7 @@
         <appender-ref ref="FILE_ERROR"/>
     </appender>
 
-    <logger name="com.github.demo" level="DEBUG" additivity="false">
+    <logger name="cn.christi" level="DEBUG" additivity="false">
         <!-- 引用的appender，类似于spring的ref -->
         <appender-ref ref="STDOUT"/>
     </logger>

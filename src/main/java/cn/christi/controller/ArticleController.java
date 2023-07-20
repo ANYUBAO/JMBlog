@@ -1,6 +1,8 @@
 package cn.christi.controller;
 
 import cn.christi.db.entity.Article;
+import cn.christi.exception.BizException;
+import cn.christi.exception.errorEnum.ServiceErrorEnum;
 import cn.christi.model.dto.article.ArticleContentDTO;
 import cn.christi.model.vo.GeneralResult;
 import cn.christi.model.vo.article.ArticleContentVO;
@@ -43,7 +45,8 @@ public class ArticleController {
     @GetMapping
     @Operation(summary = "分页")
     public GeneralResult<Article> page() {
-        return GeneralResult.genSuccessResult(new Article());
+        throw new BizException(ServiceErrorEnum.USER_NOT_FOUND);
+//        return GeneralResult.genSuccessResult(new Article());
     }
 
     @GetMapping("/info")
