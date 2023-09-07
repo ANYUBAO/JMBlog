@@ -1,8 +1,7 @@
 package cn.christi.controller;
 
 import cn.christi.db.entity.Article;
-import cn.christi.exception.BizException;
-import cn.christi.exception.errorEnum.ServiceErrorEnum;
+import cn.christi.model.dto.PageQuery;
 import cn.christi.model.dto.article.ArticleContentDTO;
 import cn.christi.model.vo.GeneralResult;
 import cn.christi.model.vo.article.ArticleContentVO;
@@ -10,6 +9,7 @@ import cn.christi.service.ArticleService;
 import cn.christi.util.GlobalConstant;
 import cn.hutool.log.Log;
 import cn.hutool.log.LogFactory;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Resource;
@@ -44,9 +44,8 @@ public class ArticleController {
 
     @GetMapping
     @Operation(summary = "分页")
-    public GeneralResult<Article> page() {
-        throw new BizException(ServiceErrorEnum.USER_NOT_FOUND);
-//        return GeneralResult.genSuccessResult(new Article());
+    public GeneralResult<Page<Article>> page(PageQuery page) {
+        return GeneralResult.genSuccessResult(articleService.page(page));
     }
 
     @GetMapping("/info")

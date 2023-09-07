@@ -1,8 +1,10 @@
 package cn.christi.db.entity;
 
+import cn.christi.util.GlobalConstant;
 import cn.hutool.core.util.IdUtil;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -30,11 +32,13 @@ public class Model {
     /**
      * 创建时间
      */
+    @JsonFormat(pattern = GlobalConstant.PATTERN, timezone = GlobalConstant.TIMEZONE)
     private LocalDateTime createTime;
 
     /**
      * 更新时间
      */
+    @JsonFormat(pattern = GlobalConstant.PATTERN, timezone = GlobalConstant.TIMEZONE)
     private LocalDateTime modifiedTime;
 
     /**

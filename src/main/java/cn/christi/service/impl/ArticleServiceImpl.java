@@ -2,10 +2,13 @@ package cn.christi.service.impl;
 
 import cn.christi.db.entity.Article;
 import cn.christi.db.service.ArticleDBService;
+import cn.christi.model.dto.PageQuery;
 import cn.christi.model.dto.article.ArticleContentDTO;
 import cn.christi.model.vo.article.ArticleContentVO;
 import cn.christi.service.ArticleService;
 import cn.hutool.core.bean.BeanUtil;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
@@ -45,5 +48,13 @@ public class ArticleServiceImpl implements ArticleService {
         article.setId(id);
         articleDbService.updateById(article);
         return article.getId();
+    }
+
+    @Override
+    public Page<Article> page(PageQuery page){
+        LambdaQueryWrapper<Article> wrapper = new LambdaQueryWrapper<>();
+        wrapper.like(Article::getTitle, "标");
+        Page<Article> articlePage = new Page<>(1, 4);
+        return articleDbService.page(articlePage, wrapper);
     }
 }
