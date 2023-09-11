@@ -8,6 +8,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
+import java.io.Serial;
+import java.io.Serializable;
+
 /**
  * @Author: yubao.an
  * @Date: 2023/7/17
@@ -20,8 +23,9 @@ import lombok.experimental.SuperBuilder;
 @Schema(description = "文章信息DTO")
 @NoArgsConstructor
 @AllArgsConstructor
-public class ArticleDTO {
+public class ArticleDTO implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     /**
